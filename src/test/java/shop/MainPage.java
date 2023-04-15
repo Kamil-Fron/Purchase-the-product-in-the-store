@@ -9,13 +9,16 @@ public class MainPage {
     private final WebDriver driver;
 
     @FindBy(css = "a[title='Log in to your customer account']")
-    WebElement loginBtn;
+    private WebElement loginBtn;
+
+    @FindBy(css = "a.account")
+    private WebElement accountBtn;
 
     @FindBy(id = "_desktop_logo")
-    WebElement logo;
+    private WebElement logo;
 
     @FindBy(css = "img[src*='img/p/2/1/21-home_default.jpg']")
-    WebElement hummingbirdProduct;
+    private WebElement hummingbirdProduct;
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
@@ -36,4 +39,13 @@ public class MainPage {
         logo.click();
         return new MainPage(driver);
     }
+
+    public MyAccountPage goToTheMyAccountPage (){
+        accountBtn.click();
+        return new MyAccountPage(driver);
+    }
+    public void closeBrowse (){
+        driver.close();
+    }
+
 }
